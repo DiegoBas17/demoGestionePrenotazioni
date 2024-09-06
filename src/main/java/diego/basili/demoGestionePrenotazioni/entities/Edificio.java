@@ -32,4 +32,13 @@ public class Edificio {
         this.città = città;
     }
 
+    @Override
+    public String toString() {
+        return "Edificio{" +
+                "edificio_id=" + edificio_id +
+                ", nome='" + nome + '\'' +
+                ", indirizzo='" + indirizzo + '\'' +
+                ", città='" + città + '\'' +
+                '}';
+    }
 }
