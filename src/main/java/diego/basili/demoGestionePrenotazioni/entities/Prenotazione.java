@@ -31,4 +31,14 @@ public class Prenotazione {
         this.postazione = postazione;
         this.utente = utente;
     }
+
+    @Override
+    public String toString() {
+        return "Prenotazione{" +
+                "prenotazione_id=" + prenotazione_id +
+                ", data=" + data +
+                ", postazione=" + postazione.getPostazione_id() +
+                ", utente=" + utente.getNome_completo() +
+                '}';
+    }
 }

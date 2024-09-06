@@ -42,7 +42,7 @@ public class Postazione {
                 ", descrizione='" + descrizione + '\'' +
                 ", tipoStanza=" + tipoStanza +
                 ", numeroMaxOccupanti=" + numeroMaxOccupanti +
-                ", edificio=" + edificio +
+                ", edificio=" + edificio.getNome() +
                 '}';
     }
 }
