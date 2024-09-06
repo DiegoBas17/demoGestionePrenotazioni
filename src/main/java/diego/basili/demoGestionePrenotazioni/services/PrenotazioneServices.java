@@ -16,9 +16,14 @@ public class PrenotazioneServices {
 
     public void save(Prenotazione newPrenotazione) {
         List<Prenotazione> prenotazioni = prenotazioneRepository.findByPostazioneAndData(newPrenotazione.getPostazione(), newPrenotazione.getData());
+        List<Prenotazione> utenteAndData = prenotazioneRepository.findByUtenteAndData(newPrenotazione.getUtente(), newPrenotazione.getData());
         if (prenotazioni.isEmpty()) {
-            prenotazioneRepository.save(newPrenotazione);
-            System.out.println("La prenotazione " + newPrenotazione.getPrenotazione_id() + " salvata con successo!");
+            if (utenteAndData.isEmpty()) {
+                prenotazioneRepository.save(newPrenotazione);
+                System.out.println("La prenotazione " + newPrenotazione.getPrenotazione_id() + " salvata con successo!");
+            } else {
+                System.out.println("questo utente ha gia un altra prenotazione oggi!");
+            }
         } else {
             System.out.println("Esiste gia una prenotazione nella data inserita!");
         }
