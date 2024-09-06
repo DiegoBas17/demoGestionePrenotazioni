@@ -31,4 +31,13 @@ public class PostazioneServices {
         return postazioneRepository.findByTipoStanzaAndEdificio_Città(tipoStanza, città);
     }
 
+    public List<Postazione> getAll() {
+        return postazioneRepository.findAll();
+    }
+
+    public void findByIdAndDelete(UUID id) {
+        Postazione postazione = this.findById(id);
+        postazioneRepository.delete(postazione);
+    }
+
 }

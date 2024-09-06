@@ -7,6 +7,7 @@ import diego.basili.demoGestionePrenotazioni.repositories.UtenteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -25,4 +26,12 @@ public class UtenteServices {
         return utente;
     }
 
+    public List<Utente> getAll() {
+        return utenteRepository.findAll();
+    }
+
+    public void findByIdAndDelete(UUID id) {
+        Utente utente = this.findById(id);
+        utenteRepository.delete(utente);
+    }
 }

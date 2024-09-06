@@ -1,11 +1,13 @@
 package diego.basili.demoGestionePrenotazioni.services;
 
 import diego.basili.demoGestionePrenotazioni.entities.Prenotazione;
+import diego.basili.demoGestionePrenotazioni.exceptions.NotFoundException;
 import diego.basili.demoGestionePrenotazioni.repositories.PrenotazioneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class PrenotazioneServices {
@@ -20,5 +22,18 @@ public class PrenotazioneServices {
         } else {
             System.out.println("Esiste gia una prenotazione nella data inserita!");
         }
+    }
+
+    public List<Prenotazione> getAll() {
+        return prenotazioneRepository.findAll();
+    }
+
+    public Prenotazione findById(UUID id) {
+        return prenotazioneRepository.findById(id).orElseThrow(() -> new NotFoundException(id));
+    }
+
+    public void findByIdAndDelete(UUID id) {
+        Prenotazione prenotazione = this.findById(id);
+        prenotazioneRepository.delete(prenotazione);
     }
 }
