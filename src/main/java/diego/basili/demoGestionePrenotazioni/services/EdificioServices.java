@@ -11,7 +11,7 @@ public class EdificioServices {
     @Autowired
     private EdificioRepository edificioRepository;
 
-    public void saveEdificio(Edificio newEdificio) {
+    public void save(Edificio newEdificio) {
         if (newEdificio.getNome().length() < 2) throw new ValidationException("Nome troppo corto");
         edificioRepository.save(newEdificio);
         System.out.println("Nuovo Edificio " + newEdificio.getNome() + " salvato con successo!");
