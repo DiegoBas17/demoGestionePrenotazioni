@@ -1,11 +1,17 @@
 package diego.basili.demoGestionePrenotazioni;
 
+import diego.basili.demoGestionePrenotazioni.entities.Edificio;
+import diego.basili.demoGestionePrenotazioni.entities.Postazione;
+import diego.basili.demoGestionePrenotazioni.enums.TipoStanza;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 @Configuration
+@PropertySource("application.properties")
 public class MenuConfig {
 
- /*   @Bean
+    @Bean
     public Edificio edificio1() {
         return new Edificio("Edificio1", "via roma 10", "milano");
     }
@@ -43,5 +49,5 @@ public class MenuConfig {
     @Bean
     public Postazione postazioneSalaRiunioni2() {
         return new Postazione("locazione ottima per riunioni o meeting", TipoStanza.SALA_RIUNIONI, 8L, edificio2());
-    }*/
+    }
 }
