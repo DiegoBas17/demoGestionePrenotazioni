@@ -12,7 +12,7 @@ public class PostazioneServices {
     private PostazioneRepository postazioneRepository;
 
     public void savePostazione(Postazione newPostazione) {
-        if (newPostazione.getNumeroMaxOccupanti() < 3) throw new ValidationException("Numero occupanti troppo basso");
+        if (newPostazione.getNumeroMaxOccupanti() < 0) throw new ValidationException("Numero occupanti troppo basso");
         postazioneRepository.save(newPostazione);
         System.out.println("Nuovo Edificio " + newPostazione.getPostazione_id() + " salvato con successo!");
     }
