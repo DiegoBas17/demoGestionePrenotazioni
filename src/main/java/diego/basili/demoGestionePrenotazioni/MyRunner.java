@@ -1,5 +1,6 @@
 package diego.basili.demoGestionePrenotazioni;
 
+import diego.basili.demoGestionePrenotazioni.entities.Edificio;
 import diego.basili.demoGestionePrenotazioni.entities.Postazione;
 import diego.basili.demoGestionePrenotazioni.entities.Prenotazione;
 import diego.basili.demoGestionePrenotazioni.entities.Utente;
@@ -10,6 +11,7 @@ import diego.basili.demoGestionePrenotazioni.services.PrenotazioneServices;
 import diego.basili.demoGestionePrenotazioni.services.UtenteServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -26,16 +28,17 @@ public class MyRunner implements CommandLineRunner {
     private UtenteServices utenteServices;
     @Autowired
     private PrenotazioneServices prenotazioneServices;
+    @Autowired
+    private AnnotationConfigApplicationContext ctx;
 
     @Override
     public void run(String... args) throws Exception {
-        /*AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(DemoGestionePrenotazioniApplication.class);
+        //AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(DemoGestionePrenotazioniApplication.class);
         Utente gabriel = new Utente("gabriel27", "gabriel azamfiri", "gabriel@gmail.com");
         Utente arianna = new Utente("ary", "arianna loreti", "arianna@gmail.com");
-        Utente eddy = new Utente("eddy", "eddy turpo", "eddy@gmail.com")*/
-        ;
+        Utente eddy = new Utente("eddy", "eddy turpo", "eddy@gmail.com");
         try {
-            /*Edificio edificio1 = ctx.getBean("edificio1", Edificio.class);
+            Edificio edificio1 = ctx.getBean("edificio1", Edificio.class);
             Edificio edificio2 = ctx.getBean("edificio2", Edificio.class);
             Postazione postazione1 = ctx.getBean("postazionePrivata", Postazione.class);
             Postazione postazione2 = ctx.getBean("postazioneOpenSpace", Postazione.class);
@@ -53,7 +56,7 @@ public class MyRunner implements CommandLineRunner {
             postazioneServices.save(postazione6);
             utenteServices.save(gabriel);
             utenteServices.save(arianna);
-            utenteServices.save(eddy);*/
+            utenteServices.save(eddy);
             Postazione postazione1FromDB = postazioneServices.findById(UUID.fromString("0b4c2229-ce12-468b-8382-d58956b60480"));
             Postazione postazione2FromDB = postazioneServices.findById(UUID.fromString("22c25a63-52a8-45fd-bd1b-87daf5d9efdb"));
             Postazione postazione3FromDB = postazioneServices.findById(UUID.fromString("4da4f8c8-962d-40e3-8ce1-ba8d0a8a0afd"));

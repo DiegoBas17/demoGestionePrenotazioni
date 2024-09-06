@@ -5,10 +5,9 @@ import diego.basili.demoGestionePrenotazioni.entities.Postazione;
 import diego.basili.demoGestionePrenotazioni.enums.TipoStanza;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-@PropertySource("application.properties")
+//@PropertySource("application.properties")
 public class MenuConfig {
 
     @Bean
